@@ -28,10 +28,9 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 	//echo "<br>$pass<br>";
 	//it's hashed
 	require("config.php");
-	$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-	try {
-		$db = new PDO($connection_string, $dbuser, $dbpass);
-		$stmt = $db->prepare("SELECT id, email, password from `Users3` where email = :email LIMIT 1");
+	$connection_string = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+		try {
+			$db = new PDO($connection_string, $username, $password);		$stmt = $db->prepare("SELECT id, email, password from `Users3` where email = :email LIMIT 1");
 		
         $params = array(":email"=> $email);
         $stmt->execute($params);
@@ -39,10 +38,6 @@ if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['passwor
 		echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 		if($result){
 			$userpassword = $result['password'];
-			//this is the wrong way
-			//$pass = password_hash($pass, PASSWORD_BCRYPT);
-			//if($pass == $userpassword)
-			//this is the correct way (please lookup password_verify online)
 			if(password_verify($pass, $userpassword)){
 				echo "You logged in with id of " . $result['id'];
 				echo "<pre>" . var_export($result, true) . "</pre>";

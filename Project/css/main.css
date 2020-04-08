@@ -1,0 +1,39 @@
+body{
+  padding-top: 50px;
+  background-color: 	#FFFFFF
+}
+a:link {
+  color: #ADD8E6;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#navbar{
+  /*background-color: #FFF0000;*/
+  background-color: #000000
+}
+
+/*change color to white*/
+#text{
+  color: #ADD8E6;
+}
+#background-image{
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow:hidden;
+  height:600px;
+  background-image: url(../Images/glass.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 700px;
+  background-position: top center;
+  background-attachment: fixed;
+}
+#image-1{
+  background-size: url(../Images/image-1)
+
+}
+#images{
+  width: auto;
+  height:200px;
+}
